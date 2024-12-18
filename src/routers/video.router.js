@@ -1,11 +1,11 @@
 import express from "express";
 import models from "../common/sequelize/init.sequelize.js";
 
-const videoRouter = express.Router()
+const videoRouter = express.Router();
 
 
-
-videoRouter.get('video-list', async(req,res,next) => {
+// video list router
+videoRouter.get('/video-list', async(req,res) => {
 
     try {
 
@@ -14,10 +14,11 @@ videoRouter.get('video-list', async(req,res,next) => {
         res.json(videos);
 
     } catch (error) {
-        console.log(error);  
+        console.error('Error fetching videos:', error.message);
+        res.status(500).json({ error: 'Failed to fetch videos' });
         
     }
-})
+});
 
 
 export default videoRouter

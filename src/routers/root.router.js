@@ -11,4 +11,4 @@ rootRouter.use('/video', videoRouter);
 
 
 
-export default rootRouter
+export default rootRouter;

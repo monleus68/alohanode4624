@@ -2,8 +2,6 @@ import { Sequelize } from "sequelize";
 import initModels from "../../models/init-models.js";
 
 
-
-
 // connect to database
 const sequelize = new Sequelize('mysql://root:12345678@127.0.0.1:3307/node_buoi7')
 
@@ -21,7 +19,7 @@ sequelize.authenticate()
 
 
 
-//init model 
+//init all models
 const models = initModels(sequelize); 
 
 
