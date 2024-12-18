@@ -1,26 +1,10 @@
 import express from "express";
-import models from "../common/sequelize/init.sequelize.js";
+import videoController from "../controllers/video.controller.js";
 
 const videoRouter = express.Router();
 
 
 // video list router
-videoRouter.get('/video-list', async(req,res) => {
-
-    try {
-
-        const videos = await models.videos.findAll({raw:true}); 
-      
-        res.json(videos);
-
-    } catch (error) {
-        console.error('Error fetching videos:', error.message);
-        res.status(500).json({ error: 'Failed to fetch videos' });
-        
-    }
-});
-
+videoRouter.get('/video-list', videoController.videoList);
 
 export default videoRouter
-
-
